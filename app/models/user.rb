@@ -21,5 +21,20 @@ class User < ApplicationRecord
     (DateTime.now.to_i - updated_at.to_i) > 43200
   end
 
+  def update_from_refreshed_user_info(user_info)
+    update(name: user_info['name'],
+           username: user_info['login'],
+           avatar_url: user_info['avatar_url'],
+           followers_url: user_info['followers_url'],
+           following_url: user_info['following_url'],
+           starred_url: user_info['starred_url'],
+           subscriptions_url: user_info['subscriptions_url'],
+           organizations_url: user_info['organizations_url'],
+           repos_url: user_info['repos_url'],
+           html_url: user_info['html_url'],
+           events_url: user_info['events_url'],
+           updated_at: DateTime.now)
+  end  
+
 
 end

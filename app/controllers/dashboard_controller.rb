@@ -1,11 +1,10 @@
 class DashboardController < ApplicationController
   def index
-    user = User.first
+    user = User.find(session[:user_id])
     if !user
       redirect_to '/auth/github'
     elsif user.needs_to_be_updated?
-      # user.update_with_new_info
-      # ^ This should be an update action in the Sessions Controller
+      redirect_to '/auth/update_user'
     else
       render json: user
     end
