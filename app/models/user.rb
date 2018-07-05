@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def needs_to_be_updated?
-    (DateTime.now.to_i - updated_at.to_i) > 43200
+    (DateTime.now.to_i - updated_at.to_i) > 10 || username == nil
   end
 
   def update_from_refreshed_user_info(user_info)

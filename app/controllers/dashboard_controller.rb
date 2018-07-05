@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
       if user.needs_to_be_updated?
         redirect_to '/auth/update_user'
       else
-        render json: user
+        render
       end
     end
   end

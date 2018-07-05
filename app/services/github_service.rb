@@ -1,5 +1,5 @@
-class GithubService
-  def initialize
+class GitHubService
+  def initialize(current_user)
     @conn = Faraday.new(url: 'https://api.github.com')
     @token = current_user.token
     @username = current_user.username

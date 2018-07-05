@@ -1,2 +1,7 @@
 %main
-  %p This is the dashboard
+  %h1 GitHub Coding Summary
+  %div#profile
+    %img{src: current_user.avatar_url}
+    %span= "#{current_user.name}"
+    %span= "@#{current_user.username}"
+
