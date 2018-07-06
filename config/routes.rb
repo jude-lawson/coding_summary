@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/followers', to: 'followers#index'
+  get '/following', to: 'following#index'
 end
