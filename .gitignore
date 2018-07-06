@@ -30,3 +30,6 @@
 
 # Ignore Coverage folder
 coverage
+
+# Ignore fixture data
+spec/fixtures

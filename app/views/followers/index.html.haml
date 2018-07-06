@@ -1,0 +1,6 @@
+%h1= "#{current_user.name}'s Followers'"
+%h3= "Number of Followers: #{@followers.count}"
+%ul
+  -@followers.each do |follower|
+    %li{id: "follower-#{follower['id']}"}
+      =link_to follower['login'], follower['html_url']
