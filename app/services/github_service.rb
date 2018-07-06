@@ -9,4 +9,13 @@ class GitHubService
     response = @conn.get("/users/#{@username}", { access_token: @token }).body
     JSON.parse(response)
   end
+
+  def starred_repos
+    response = @conn.get("/users/#{@username}/starred", { access_token: @token }).body
+    JSON.parse(response)
+  end
+
+  def get_followers
+    @conn.get("/users/#{@username}/followers", { access_token: @token }).body
+  end
 end

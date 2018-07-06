@@ -4,4 +4,7 @@
     %img{src: current_user.avatar_url}
     %span= "#{current_user.name}"
     %span= "@#{current_user.username}"
-
+  %div#stats
+    =link_to "Followers: #{current_user.followers}", '/followers'
+    =link_to "Following: #{current_user.following}", '/following'
+    =link_to "Starred Repos: #{current_user.starred_repos_count}", '/starred_repos'

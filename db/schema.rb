@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2018_07_03_194548) do
     t.string "repos_url"
     t.string "html_url"
     t.string "events_url"
+    t.integer "followers"
+    t.integer "following"
   end
 
 end

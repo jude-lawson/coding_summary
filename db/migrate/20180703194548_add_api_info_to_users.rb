@@ -10,5 +10,7 @@ class AddApiInfoToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :repos_url, :string
     add_column :users, :html_url, :string
     add_column :users, :events_url, :string
+    add_column :users, :followers, :integer
+    add_column :users, :following, :integer
   end
 end

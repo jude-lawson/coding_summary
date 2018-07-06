@@ -10,6 +10,8 @@ require 'rspec/rails'
 require 'simplecov'
 SimpleCov.start
 
+require 'webmock/rspec'
+
 OmniAuth.config.test_mode = true
 
 OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
