@@ -18,4 +18,9 @@ class GitHubService
   def get_followers
     @conn.get("/users/#{@username}/followers", { access_token: @token }).body
   end
+
+  def get_favorite_users
+    response = @conn.get("/users/#{@username}/following", { access_token: @token }).body
+    JSON.parse(response)
+  end
 end
