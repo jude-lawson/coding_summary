@@ -4,9 +4,9 @@ RSpec.describe 'Followers Page' do
   before :each do
     @user_data = JSON.parse(File.read('spec/fixtures/single_user_hash.json'))
     @the_user = JSON.parse(File.read('spec/fixtures/auth_hash.json'))
-    @user_info = JSON.parse(File.read('spec/fixtures/single_user_hash.json'))
-    @followers = JSON.parse(File.read('spec/fixtures/followers.json'))
     user = User.create_from_auth_info(@the_user, @the_user['credentials']['token'])
+    
+    @followers = JSON.parse(File.read('spec/fixtures/followers.json'))
 
     stub_request(:any, "https://api.github.com/users/#{@user_data['login']}/starred")
       .with(query: {access_token: @the_user['credentials']['token']})
@@ -22,7 +22,7 @@ RSpec.describe 'Followers Page' do
   it 'should have a heading with the user\'s name' do
     visit '/followers'
 
-    expect(page).to have_content("#{@user_info['name']}'s Followers'")
+    expect(page).to have_content("#{@user_data['name']}'s Followers'")
   end
 
   it 'should have a count of followers' do

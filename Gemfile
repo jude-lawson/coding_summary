@@ -54,6 +54,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'webmock'
+  gem 'database_cleaner'
 end
 
 group :development do

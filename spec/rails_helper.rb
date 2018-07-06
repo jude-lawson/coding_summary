@@ -12,6 +12,8 @@ SimpleCov.start
 
 require 'webmock/rspec'
 
+require 'database_cleaner'
+
 OmniAuth.config.test_mode = true
 
 OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
@@ -61,7 +63,7 @@ OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
       public_repos: 2,
       public_gists: 1,
       followers: 20,
-      following: 0,
+      following: 2,
       created_at: "2008-01-14T04:33:35Z",
       updated_at: "2008-01-14T04:33:35Z"
     },
@@ -90,6 +92,20 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  # Configure Database Cleaner
+  config.before :suite do
+    DatabaseCleaner.clean_with :truncation
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before :each do
+    DatabaseCleaner.start
+  end
+
+  config.after :each do
+    DatabaseCleaner.clean
+  end
 
   # Set OmniAuth to testing mode
 
