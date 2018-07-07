@@ -2,7 +2,7 @@
 %h3= "Number of Favorite Users: #{current_user.following}"
 
 %ul
-  -@favorite_users.each do |user|
-    %li{id: "user-#{user['id']}"}
-      =link_to "@#{user['login']}", user['html_url']
+  -@presenter.fave_users.each do |user|
+    %li{id: "user-#{user.id}"}
+      =link_to "@#{user.login}", user.url
 

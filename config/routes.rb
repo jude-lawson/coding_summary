@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/followers', to: 'followers#index'
   get '/following', to: 'following#index'
+  get '/starred_repos', to: 'starred_repos#index'
 end

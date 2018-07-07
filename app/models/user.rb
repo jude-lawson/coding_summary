@@ -39,7 +39,7 @@ class User < ApplicationRecord
   end
 
   def starred_repos_count
-    GitHubService.new(self).starred_repos.count
+    GitHubService.new(self).get_starred_repos.count
   end
 
 
