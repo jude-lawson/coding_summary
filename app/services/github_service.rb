@@ -10,7 +10,7 @@ class GitHubService
     JSON.parse(response)
   end
 
-  def starred_repos
+  def get_starred_repos
     response = @conn.get("/users/#{@username}/starred", { access_token: @token }).body
     JSON.parse(response)
   end
@@ -20,7 +20,7 @@ class GitHubService
     JSON.parse(response)
   end
 
-  def get_favorite_users
+  def get_fave_users
     response = @conn.get("/users/#{@username}/following", { access_token: @token }).body
     JSON.parse(response)
   end

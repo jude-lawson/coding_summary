@@ -55,6 +55,7 @@ group :test do
   gem 'launchy'
   gem 'webmock'
   gem 'database_cleaner'
+  gem 'factory_bot_rails'
 end
 
 group :development do

@@ -28,8 +28,7 @@ RSpec.describe 'Followers Page' do
 
   it 'should have a count of followers' do
     visit '/followers'
-
-    expect(page).to have_content("Number of Followers: #{@followers_data.count}")
+    expect(page).to have_content("Number of Followers: #{@user_data['followers']}")
   end
 
   it 'should have the followers\' usernames as links to their actual github pages' do

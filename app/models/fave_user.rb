@@ -1,9 +1,9 @@
-class Follower
-  attr_reader :login, :url, :id
+class FaveUser
+  attr_reader :login, :id, :url
 
   def initialize(attributes)
     @login = attributes['login'] 
-    @url   = attributes['html_url']
     @id    = attributes['id']
+    @url   = attributes['html_url']
   end
 end

@@ -1,0 +1,9 @@
+%h1= "#{current_user.name}'s Starred Repos'"
+%h3= "Number of Starred Repos: #{@presenter.starred_repos.count}"
+
+%ul
+  -@presenter.starred_repos.each do |starred_repo|
+    %li{id: "starred-repo-#{starred_repo.id}"}
+      =link_to starred_repo.name, starred_repo.repo_url
+      %a{href: starred_repo.owner_url} "By: #{starred_repo.owner}" 
+      %span= "Description: #{starred_repo.description}"
